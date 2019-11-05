@@ -43,25 +43,31 @@ class Index extends React.Component {
         <div>
           <h1>Search for the movie</h1>
           <p>Enter keywords..</p>
-            <input className="form-control mr-sm-2"
+            <input className="form-control mr-sm-2 mb-3"
              type="text"
              name="search"
              value={this.state.text}
              onChange={this.handleChange}
              onKeyPress={this.keyPress}
              autoComplete="off"/>
-            <button className="btn btn-secondary my-2 my-sm-0" onClick={() => this.makeSearch().bind(this)}>Search</button>
+            <button className="btn btn-secondary my-2 my-sm-0 mb-3" onClick={() => this.makeSearch().bind(this)}>
+              Search
+            </button>
         </div>
-        {this.state.data && this.state.data.map((item, index) => (
-          <div key={index}><MovieCard title={item.Title}
-                                      imageurl={item.Poster}
-                                      subtitle={item.Type}
-                                      year={item.year}
-                                      />
-          </div>
-          
-        ))}
-        {!this.state.data && <div>Movie Not Found.</div>}
+        <hr />
+        <div className="mt-5">
+          {this.state.data && this.state.data.map((item, index) => (
+            <div key={index}>
+              <MovieCard title={item.Title}
+                imageurl={item.Poster}
+                subtitle={item.Type}
+                year={item.Year}
+                imdb={item.imdbID}
+                />
+            </div>
+          ))}
+          {!this.state.data && <div>Movie Not Found.</div>}
+        </div>
       </Layout>
     );
   }
