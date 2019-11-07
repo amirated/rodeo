@@ -1,4 +1,4 @@
-# Roveo
+# Rodeo
 
 > Sample Next.js app fetching data from OMDB based on search input.
 
